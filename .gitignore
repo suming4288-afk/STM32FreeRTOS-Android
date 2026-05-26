@@ -1,0 +1,15 @@
+# Keil 编译生成的中间文件和输出文件
+Objects/
+Listings/
+*.o
+*.d
+*.crf
+*.htm
+*.lnp
+*.map
+*.axf
+*.hex
+*.build_log.htm
+*.dep
+*.bak
+*.uvoptx
