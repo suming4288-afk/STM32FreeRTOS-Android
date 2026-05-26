@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#F5F5F5">
+
+    <Button
+        android:id="@+id/btnConnect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="连接 JDY-31 蓝牙"
+        android:backgroundTint="#2196F3"
+        android:textColor="#FFFFFF" />
+
+    <TextView
+        android:id="@+id/tvStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="状态:未连接"
+        android:layout_gravity="center"
+        android:padding="4dp"
+        android:textSize="12sp"
+        android:textColor="#666666"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:rowCount="2">
+
+        <LinearLayout
+            android:id="@+id/layoutTemp"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:padding="12dp"
+            android:layout_margin="4dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="温度" android:textSize="14sp" />
+            <TextView android:id="@+id/tvTemp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- ℃" android:textSize="22sp" android:textColor="#FF5722" android:textStyle="bold" android:maxLines="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutHumi"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:padding="12dp"
+            android:layout_margin="4dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="湿度" android:textSize="14sp" />
+            <TextView android:id="@+id/tvHumi" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- %" android:textSize="22sp" android:textColor="#00BCD4" android:textStyle="bold" android:maxLines="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutLight"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:padding="12dp"
+            android:layout_margin="4dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="光强" android:textSize="14sp" />
+            <TextView android:id="@+id/tvLight" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- %" android:textSize="22sp" android:textColor="#FFC107" android:textStyle="bold" android:maxLines="1" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/layoutDist"
+            android:layout_width="0dp"
+            android:layout_height="100dp"
+            android:layout_columnWeight="1"
+            android:background="@android:color/white"
+            android:elevation="2dp"
+            android:padding="12dp"
+            android:layout_margin="4dp"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:attr/selectableItemBackground">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="距离" android:textSize="14sp" />
+            <TextView android:id="@+id/tvDist" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="-- cm" android:textSize="22sp" android:textColor="#4CAF50" android:textStyle="bold" android:maxLines="1" />
+        </LinearLayout>
+    </GridLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="LED灯"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"/>
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:columnCount="2"
+        android:layout_marginTop="4dp">
+        <Button android:id="@+id/btnL1On" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="LED 开" android:layout_margin="2dp"/>
+        <Button android:id="@+id/btnL1Off" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:text="LED 关" android:layout_margin="2dp" android:backgroundTint="#9E9E9E"/>
+    </GridLayout>
+
+    <TextView
+        android:id="@+id/tvThresholdTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="报警阈值设置 (当前: 温度)"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="4dp">
+        <EditText
+            android:id="@+id/etThreshold"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="输入上限(留空取消)"
+            android:inputType="numberDecimal" />
+        <Button
+            android:id="@+id/btnSetThreshold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="设置" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tvWarning"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFEBEE"
+        android:textColor="#F44336"
+        android:textStyle="bold"
+        android:textSize="14sp"
+        android:padding="8dp"
+        android:gravity="center"
+        android:visibility="gone"
+        android:layout_marginTop="4dp"
+        android:text="⚠️ 警告：当前数值已超阈值！" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="8dp">
+
+        <TextView
+            android:id="@+id/tvChartTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="实时曲线"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/btnToggleHistory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看历史记录"
+            android:textSize="12sp"
+            android:minHeight="36dp"
+            android:paddingHorizontal="12dp"
+            android:backgroundTint="#FF9800"
+            android:textColor="#FFFFFF"/>
+    </LinearLayout>
+
+    <com.github.mikephil.charting.charts.LineChart
+        android:id="@+id/realtimeChart"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="4dp"
+        android:background="#FFFFFF" />
+
+</LinearLayout>
